@@ -18,6 +18,8 @@ class CreateDisciplinesTable extends Migration
             $table->string('code')->unique();
             $table->integer('departamentId')->unsigned();
             $table->string('name')->unique();
+            $table->integer('idealYear');
+            $table->integer("semester");
             $table->foreign('departamentId')->references('id')->on('departament');
         });
     }

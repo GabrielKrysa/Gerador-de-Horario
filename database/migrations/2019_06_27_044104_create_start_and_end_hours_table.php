@@ -16,7 +16,7 @@ class CreateStartAndEndHoursTable extends Migration
         Schema::create('start_and_end_hours', function (Blueprint $table) {
             $table->increments('id');
             $table->string('hour')->unique();
-            $table->timestamps();
+            $table->string('type');
         });
     }
 
