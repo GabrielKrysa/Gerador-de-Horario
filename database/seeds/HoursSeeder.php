@@ -6,9 +6,6 @@ use Faker\Factory as FactoryFaker;
 
 class HoursSeeder extends Seeder
 {
-
-    private $faker;
-
     /**
      * Run the database seeds.
      *
@@ -24,7 +21,7 @@ class HoursSeeder extends Seeder
             "type" => "start and end"
         ], [
             "hour" => "9:10",
-            "type" => "start and ens"
+            "type" => "start and end"
         ], [
             "hour" => "10:00",
             "type" => "end"

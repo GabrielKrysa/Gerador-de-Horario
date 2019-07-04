@@ -12,7 +12,7 @@ class DepartamentSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("departament")->insert([[
+        DB::table("departaments")->insert([[
             "name" => "DECOMP/G"
         ], [
             "name" => "DEMAT/G"

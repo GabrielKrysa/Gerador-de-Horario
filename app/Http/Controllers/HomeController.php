@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Disciplines;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $disciplines = Disciplines::with(['departament'])->get();
+
+        return view('home', [
+            'disciplines' => $disciplines
+        ]);
     }
 }
