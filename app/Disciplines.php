@@ -32,4 +32,8 @@ class Disciplines extends Model
         return $this->belongsTo(Departaments::class, 'departamentId', 'id');
     }
 
+    public function scheduleDisciplines()
+    {
+        return $this->hasMany(Discipline_schedules::class);
+    }
 }

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Days;
+use App\Discipline_schedules;
 use App\Disciplines;
-use Illuminate\Http\Request;
+use App\SchedulesDisciplines;
+use App\Start_and_end_hours;
 
 class HomeController extends Controller
 {
@@ -25,9 +28,15 @@ class HomeController extends Controller
     public function index()
     {
         $disciplines = Disciplines::with(['departament'])->get();
+        $starEndHours = Start_and_end_hours::with(['typeHour'])->get();
+        $schedules = Discipline_schedules::with(['start_hour'], ['end_hour'], ['discipline'], ['day'])->get();
+        $days = Days::all();
 
         return view('home', [
-            'disciplines' => $disciplines
+            'disciplines' => $disciplines,
+            'schedules' => $schedules,
+            'hours' => $starEndHours,
+            'days' => $days
         ]);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStartAndEndHoursTable extends Migration
+class CreateTypeHourTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateStartAndEndHoursTable extends Migration
      */
     public function up()
     {
-        Schema::create('start_and_end_hours', function (Blueprint $table) {
+        Schema::create('type_hours', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('hour')->unique();
-            $table->integer('typeId')->unsigned();
-            $table->foreign('typeId')->references('id')->on('type_hours');
+            $table->string('type');
         });
     }
 
@@ -28,6 +26,6 @@ class CreateStartAndEndHoursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('start_and_end_hours');
+        Schema::dropIfExists('type_hour');
     }
 }

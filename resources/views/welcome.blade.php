@@ -48,6 +48,10 @@
                 font-size: 84px;
             }
 
+            .subtitle {
+                font-size: 35px;
+            }
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -68,7 +72,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Incio</a>
                     @else
                         <a href="{{ route('login') }}">Entrar</a>
 
@@ -83,7 +87,14 @@
                 <div class="title m-b-md">
                     Gerador de Horários
                 </div>
+                <div class="links">
+                    <a href="#">Gerar Horário</a>
+                </div>
 
+                <div class="teste">
+                    <a class="alert-primary col-6" href="{{route('DisciplinesSchedulesPdf')}}">BAIXAR</a>
+                </div>
+                </div>
                 <!--<div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>

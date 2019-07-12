@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('/');
 
 Route::middleware(['auth'])->group(function () {
     /*
@@ -29,8 +29,10 @@ Route::middleware(['auth'])->group(function () {
     */
 });
 
-
+Route::get('/Disciplinespdf', 'DiscplinesPdfController@getDisciplinesPdf')->name('DisciplinesPdf');
+Route::get('/DisciplinesSchedulespdf', 'DisciplinesSchedulesPdfController@getDisciplinesSchedulesPdf')->name('DisciplinesSchedulesPdf');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/disciplinas/listar', 'DisciplinesController@actionAlocation')->name('DisciplineController.actionAlocation');
+Route::post('/registrarSchedule', 'DisciplineScheduleController@requestSchedule')->name('DisciplineSchedule.request');
+Route::post('/deletarSchedule', 'DisciplineScheduleController@deleteSchedule')->name('DisciplineSchedule.delete');

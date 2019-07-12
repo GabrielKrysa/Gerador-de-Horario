@@ -15,67 +15,67 @@ class HoursSeeder extends Seeder
     {
         DB::table("start_and_end_hours")->insert([[
             "hour" => "7:30",
-            "type" => "start"
+            "typeId" => 1
         ], [
             "hour" => "8:20",
-            "type" => "start and end"
+            "typeId" => 3
         ], [
             "hour" => "9:10",
-            "type" => "start and end"
+            "typeId" => 3
         ], [
             "hour" => "10:00",
-            "type" => "end"
+            "typeId" => 2
         ], [
             "hour" => "10:10",
-            "type" => "start"
+            "typeId" => 1
         ], [
             "hour" => "11:00",
-            "type" => "start and end"
+            "typeId" => 3
         ], [
             "hour" => "11:50",
-            "type" => "end"
+            "typeId" => 2
         ], [
             "hour" => "13:20",
-            "type" => "start"
+            "typeId" => 1
         ], [
             "hour" => "14:10",
-            "type" => "start and end"
+            "typeId" => 3
         ], [
             "hour" => "15:00",
-            "type" => "end"
+            "typeId" => 2
         ], [
             "hour" => "15:10",
-            "type" => "start"
+            "typeId" => 1
         ], [
             "hour" => "16:00",
-            "type" => "start and end"
+            "typeId" => 3
         ], [
             "hour" => "16:50",
-            "type" => "start and end"
+            "typeId" => 3
         ], [
             "hour" => "17:40",
-            "type" => "start and end"
+            "typeId" => 3
         ], [
             "hour" => "18:30",
-            "type" => "start and end"
+            "typeId" => 3
         ], [
             "hour" => "18:50",
-            "type" => "start"
+            "typeId" => 1
         ], [
             "hour" => "19:40",
-            "type" => "start and end"
+            "typeId" => 3
         ], [
             "hour" => "20:30",
-            "type" => "start and end"
+            "typeId" => 3
         ], [
             "hour" => "21:20",
-            "type" => "end"
+            "typeId" => 2
         ], [
             "hour" => "21:30",
-            "type" => "start and end"
+            "typeId" => 3
         ], [
             "hour" => "22:20",
-            "type" => "start and end"
+            "typeId" => 2
         ]]);
     }
 }
