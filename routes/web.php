@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('/');
 
+Route::get('/gerarhorario', function () {
+    return view('scheduleGenerator');
+})->name('gerarhorario');
+
+
 Route::middleware(['auth'])->group(function () {
     /*
     Route::get('/ExcluirAlocacao', function () {
@@ -31,7 +36,11 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/Disciplinespdf', 'DiscplinesPdfController@getDisciplinesPdf')->name('DisciplinesPdf');
 Route::get('/DisciplinesSchedulespdf', 'DisciplinesSchedulesPdfController@getDisciplinesSchedulesPdf')->name('DisciplinesSchedulesPdf');
+Route::get('/gerarhorario', 'ScheduleGeneratorController@index')->name('GetScheduleGenerator');
+Route::post('/ScheduleGenerator', 'ScheduleGeneratorController@scheduleGenerator')->name('ScheduleGenerator');
+
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/registrarSchedule', 'DisciplineScheduleController@requestSchedule')->name('DisciplineSchedule.request');

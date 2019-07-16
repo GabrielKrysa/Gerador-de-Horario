@@ -48,10 +48,10 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="List" role="tabpanel" aria-labelledby="home-tab">
+                        <div aria-labelledby="home-tab" class="tab-pane fade show active" id="List" role="tabpanel">
                             <table class="table" id="table_disciplines">
                                 <tr>
-                                    <thead>
+                                     <thead>
                                     <th scope="col">ID</th>
                                     <th scope="col">Código</th>
                                     <th scope="col">Departamento</th>
@@ -76,7 +76,7 @@
                             <a class="alert-primary col-6" href="{{route('DisciplinesPdf')}}">BAIXAR</a>
                         </div>
 
-                        <div class="tab-pane fade" id="AlocationList" role="tabpanel" aria-labelledby="contact-tab">
+                        <div aria-labelledby="contact-tab" class="tab-pane fade" id="AlocationList" role="tabpanel">
                             <table class="table" id="table_disciplines">
                                 <tr>
                                     <thead>
@@ -105,6 +105,9 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <div class="teste">
+                                <a class="alert-primary col-6" href="{{route('DisciplinesSchedulesPdf')}}">BAIXAR</a>
+                            </div>
                         </div>
 
                         <div class="tab-pane fade" id="Alocation" role="tabpanel" aria-labelledby="profile-tab"

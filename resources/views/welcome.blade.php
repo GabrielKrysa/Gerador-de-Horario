@@ -88,13 +88,11 @@
                     Gerador de Horários
                 </div>
                 <div class="links">
-                    <a href="#">Gerar Horário</a>
+                    <a href="{{ route('GetScheduleGenerator') }}">Gerar Horário</a>
                 </div>
 
-                <div class="teste">
-                    <a class="alert-primary col-6" href="{{route('DisciplinesSchedulesPdf')}}">BAIXAR</a>
-                </div>
-                </div>
+
+            </div>
                 <!--<div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
