@@ -40,8 +40,8 @@ class ScheduleGeneratorController extends Controller
             }
 
             $data = $this->verificationDisciplineSchedule($disciplines);
-            $found = $data["found"];
-            $fault = $data["fault"];
+            $found = $data["found"]; // Disciplinas com horários alocados
+            $fault = $data["fault"]; // Disciplinas sem horários alocados
 
             if (empty($found)) {
                 $message = "Erro, nenhuma disciplina escolhida tem horário(s) alocado(s), tente novamente mais tarde";
@@ -49,7 +49,20 @@ class ScheduleGeneratorController extends Controller
             }
 
             $schedules = $this->getDisciplinesSchedules($found);
-            $this->verification($schedules);
+            $alocations = $this->verification($schedules); // disciplinas alocadas
+            $formatedAlocation = array();
+            foreach ($alocations as $alocation) {
+                $formatedAlocation[] = $alocation[0];
+            }
+
+            if (empty($alocations)) {
+                $message = "Erro, as disciplinas selecionadas não contem combinação possivel";
+                return redirect()->back()->with('alertDontOK', $message);
+            } else {
+                return view('generatedSchedule', [
+                    'schedules' => $formatedAlocation
+                ]);
+            }
         }
 
     }
@@ -88,7 +101,7 @@ class ScheduleGeneratorController extends Controller
             $alocations[] = $this->verificationClasses($schedule, $schedules);
         }
 
-        dd($alocations);
+        return $alocations;
     }
 
     function verificationClasses($scheduleClasses, $schedules)
@@ -105,13 +118,15 @@ class ScheduleGeneratorController extends Controller
                 }
             }
         } else {
-            if ($this->verificationHour($scheduleClasses[0], $schedules)) {
-                $alocations[] = $scheduleClasses[0];
-            } else {
-                $problemAlocations[] = $scheduleClasses[0];
+            foreach ($scheduleClasses as $s) {
+                if ($this->verificationHour($s, $schedules)) {
+                    $alocations[] = $s;
+                } else {
+                    $problemAlocations[] = $s;
+                }
             }
-        }
 
+        }
 
         if (empty($alocations)) {
             return false;
